@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["decisions"],
+  "properties": {
+    "decisions": {
+      "type": "array",
+      "maxItems": 20,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["rawItemIds", "disposition", "title", "leadBriefTh", "whyItMattersTh", "verifyNextTh", "rejectionReason", "confidenceLabel", "scores", "topicTags"],
+        "properties": {
+          "rawItemIds": { "type": "array", "minItems": 1, "maxItems": 20, "items": { "type": "string" } },
+          "disposition": { "type": "string", "enum": ["lead", "rejected"] },
+          "title": { "type": "string", "minLength": 1, "maxLength": 500 },
+          "leadBriefTh": { "type": "string", "minLength": 1, "maxLength": 3000 },
+          "whyItMattersTh": { "type": "string", "minLength": 1, "maxLength": 2000 },
+          "verifyNextTh": { "type": "string", "minLength": 1, "maxLength": 2000 },
+          "rejectionReason": { "type": "string", "maxLength": 2000 },
+          "confidenceLabel": { "type": "string", "enum": ["high", "medium", "low"] },
+          "scores": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["audienceFit", "contentPotential", "novelty", "practicalValue", "confidence", "ranking"],
+            "properties": {
+              "audienceFit": { "type": "integer", "minimum": 0, "maximum": 100 },
+              "contentPotential": { "type": "integer", "minimum": 0, "maximum": 100 },
+              "novelty": { "type": "integer", "minimum": 0, "maximum": 100 },
+              "practicalValue": { "type": "integer", "minimum": 0, "maximum": 100 },
+              "confidence": { "type": "integer", "minimum": 0, "maximum": 100 },
+              "ranking": { "type": "integer", "minimum": 0, "maximum": 100 }
+            }
+          },
+          "topicTags": { "type": "array", "maxItems": 20, "items": { "type": "string", "maxLength": 100 } }
+        }
+      }
+    }
+  }
+}

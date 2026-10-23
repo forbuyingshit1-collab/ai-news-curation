@@ -1,0 +1,3 @@
+# Run AI editorial generation through a local Codex worker
+
+The system will use Codex CLI on the operator's Windows PC for AI selection and Thai summary generation instead of calling an LLM API from Vercel. A scheduled local worker will read collected source material, create or refresh the Daily Editorial Board, and persist the result to the shared system of record for the hosted dashboard. This avoids a separate LLM API integration, but scheduled generation depends on the PC being powered on, online, and authenticated to Codex; a missed 08:00 run must be retried after the machine becomes available.

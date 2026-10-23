@@ -1,0 +1,3 @@
+# Run Newsletter Intake through the local worker
+
+The system will connect a Dedicated Intake Mailbox through a Google Desktop OAuth client on the Windows PC and request only the `gmail.readonly` scope. Client credentials and refresh tokens remain in a gitignored local `.secrets/` directory rather than being stored on Vercel; the worker cannot send, delete, move, or mark messages read. All non-system messages are Newsletter Intake candidates without requiring a sender allowlist or Gmail label, reducing exposure of mailbox access while accepting that collection depends on the PC being powered on and online, with missed runs caught up when the worker becomes available.

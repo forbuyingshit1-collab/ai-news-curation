@@ -1,0 +1,3 @@
+# Enrich source material through the local worker before editorial generation
+
+Article extraction will run as retryable Source Enrichment jobs on the operator's PC rather than inside Vercel request handlers. Collection creates Raw Items quickly, and every Raw Item with an eligible primary-content URL is enriched before editorial filtering unless a reusable Source Snapshot already exists. The local worker processes four URLs concurrently, gives each request 15 seconds, retries each source at most twice, and closes the enrichment window after 30 minutes; the board then proceeds from available evidence and is marked partial when applicable extraction work failed or timed out. This avoids Vercel execution limits but extends the existing dependency on the PC being available.

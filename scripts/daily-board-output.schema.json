@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["items"],
+  "properties": {
+    "items": {
+      "type": "array",
+      "maxItems": 10,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["contentLeadId", "summaryTh", "confidenceLabel"],
+        "properties": {
+          "contentLeadId": { "type": "string", "minLength": 1 },
+          "summaryTh": { "type": "string", "minLength": 240, "maxLength": 2400 },
+          "confidenceLabel": { "type": "string", "enum": ["high", "medium", "low"] }
+        }
+      }
+    }
+  }
+}

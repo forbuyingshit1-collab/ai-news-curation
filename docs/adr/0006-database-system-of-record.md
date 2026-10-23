@@ -1,0 +1,3 @@
+# Use a database as the system of record
+
+The MVP will use normalized Postgres tables as the authoritative store rather than relying on a spreadsheet, note workspace, or one JSONB application-state document. Sources, Newsletter Editions, Raw Items, Source Snapshots, Story Clusters, Content Leads, rejected items, feedback, Editorial Memory, Reference Library records, jobs, and collection runs need structured querying, retention, checkpoints, and reliable relationships. Existing `app_state` data will be migrated before its read/write path is retired, while Daily Editorial Board history remains intact.

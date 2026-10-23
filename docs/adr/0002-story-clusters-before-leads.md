@@ -1,0 +1,3 @@
+# Build story clusters before content leads
+
+The system will group Raw Items from APIs, Newsletter Stories, and Manual URL Intake about the same update or instructional topic into a Story Cluster before creating a Content Lead. Matching canonical URLs or content hashes merge automatically; otherwise title, entities, publication timing, and claims produce candidates that Codex may confirm, while ambiguous cases remain separate and different releases are never merged solely because they share a company or product. This prevents duplicate lead briefs, preserves every supporting source, prefers an official or primary source as canonical evidence, and lets confidence reflect combined evidence instead of one item.
